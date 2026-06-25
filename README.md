@@ -1,94 +1,211 @@
-# TripNest-Typscript-Next.js-main aur TripNext-main ka Tech Stack Difference
+# The Golden Shutter
 
-## Short summary
+A modern full-stack wedding photography booking platform built with the MERN stack, featuring an elegant portfolio gallery, seamless booking experience, secure backend APIs, and cloud-based image management.
 
-Dono projects ka base similar hai: Next.js App Router, TypeScript, React, MongoDB/Mongoose, NextAuth, Tailwind CSS, Cloudinary, Leaflet maps, Nodemailer, Biome, aur same folder structure (`app`, `components`, `lib`, `models`, `public`).
+## Screenshot
 
-Main difference versions aur kuch extra dependencies ka hai. `TripNext-main` zyada updated stack use karta hai, jabki `TripNest-Typscript-Next.js-main` comparatively older/stable versions par hai.
+![The Golden Shutter Screenshot](frontend/Screenshots/image.png)
 
-## Core stack comparison
+---
 
-| Area | TripNest-Typscript-Next.js-main | TripNext-main | Difference |
-|---|---|---|---|
-| Project name | `tripnest` | `tripnext` | Name different |
-| Next.js | `14.2.5` | `^16.2.6` | `TripNext-main` newer Next.js |
-| React | `18.3.1` | `^19.2.6` | `TripNext-main` newer React |
-| React DOM | `18.3.1` | `^19.2.6` | React DOM bhi newer |
-| TypeScript | `^5.6.3` | `^5.9.3` | `TripNext-main` newer TypeScript |
-| Tailwind CSS | `^3.4.4` | `^4.3.0` | `TripNext-main` Tailwind v4 use karta hai |
-| Tailwind config | config file nahi dikhi | `tailwind.config.ts` present | `TripNext-main` me explicit Tailwind config hai |
-| Next config | `next.config.js` | `next.config.ts` | `TripNext-main` config TypeScript file me hai |
-| Biome | `2.2.0` | `2.2.0` | Same lint/format tool |
-| App Router | Yes | Yes | Same architecture |
+## Tech Stack
 
-## Backend / database stack
+### Frontend
 
-| Area | TripNest-Typscript-Next.js-main | TripNext-main | Difference |
-|---|---|---|---|
-| MongoDB driver | `^6.6.1` | `^7.2.0` | `TripNext-main` newer |
-| Mongoose | `^8.3.2` | `^9.6.2` | `TripNext-main` newer |
-| NextAuth | `4.24.13` | `^4.24.13` | Almost same |
-| Auth adapter | Not present | `@auth/mongodb-adapter` | Extra in `TripNext-main` |
-| bcryptjs | `^2.4.3` | `^3.0.3` | `TripNext-main` newer |
-| jsonwebtoken | `^9.0.2` | `^9.0.3` | Minor newer |
-| Nodemailer | `^6.10.1` | `^7.0.13` | `TripNext-main` newer major version |
+* React 19
+* Vite
+* Tailwind CSS
+* Axios
 
-## Frontend / UI libraries
+### Backend
 
-| Area | TripNest-Typscript-Next.js-main | TripNext-main | Difference |
-|---|---|---|---|
-| axios | `^1.7.2` | `^1.16.1` | `TripNext-main` newer |
-| Cloudinary | `^2.2.0` | `^2.10.0` | `TripNext-main` newer |
-| Leaflet | `^1.9.4` | `^1.9.4` | Same |
-| react-leaflet | `^4.2.1` | `^5.0.0` | `TripNext-main` newer |
-| react-hot-toast | `^2.4.1` | `^2.6.0` | `TripNext-main` newer |
-| lucide-react | `^0.462.0` | `^0.561.0` | `TripNext-main` newer |
-| react-icons | Not present | `^5.6.0` | Extra in `TripNext-main` |
-| clsx | Not present | `^2.1.1` | Extra utility in `TripNext-main` |
+* Node.js
+* Express 5
+* MongoDB (Mongoose)
+* Cloudinary
+* Nodemailer
 
-## Extra packages in TripNext-main
+---
 
-`TripNext-main` me ye extra packages hain:
+## Necessary NPM Packages
 
-- `@auth/mongodb-adapter`
-- `clsx`
-- `dotenv`
-- `multer`
-- `react-icons`
-- `update`
-- `@tailwindcss/postcss`
+### Frontend
 
-Inka matlab:
+```bash
+npm install react react-dom react-router-dom axios
+npm install -D vite tailwindcss @tailwindcss/vite eslint
+```
 
-- `@auth/mongodb-adapter`: NextAuth ko MongoDB ke saath adapter-based session/user storage ke liye use kiya ja sakta hai.
-- `clsx`: conditional CSS class names manage karne ke liye.
-- `dotenv`: environment variables load karne ke liye.
-- `multer`: file uploads handle karne ke liye, mostly Node/Express style upload middleware.
-- `react-icons`: icons ke liye extra icon library.
-- `@tailwindcss/postcss`: Tailwind v4 PostCSS setup ke liye.
+### Backend
 
-## Important note
+```bash
+npm install express mongoose cors dotenv cloudinary multer multer-storage-cloudinary nodemailer jsonwebtoken bcryptjs cookie-parser express-validator morgan
+npm install -D nodemon
+```
 
-`TripNest-Typscript-Next.js-main` ke `postcss.config.cjs` me `@tailwindcss/postcss` plugin use ho raha hai, lekin uske `package.json` me `@tailwindcss/postcss` dependency listed nahi hai. Is wajah se install/build ke time issue aa sakta hai.
+---
 
-`TripNest-Typscript-Next.js-main` Tailwind v3 dependency show karta hai, lekin PostCSS config Tailwind v4 style ka hai. Ye mismatch hai.
+## Quick Start
 
-## Final conclusion
+### Prerequisites
 
-`TripNest-Typscript-Next.js-main`:
+* Node.js v16+
+* npm v8+
+* MongoDB
+* Cloudinary Account
 
-- Older/stable stack
-- Next.js 14 + React 18
-- Tailwind v3 dependency
-- Fewer dependencies
-- Possible Tailwind PostCSS config mismatch
+### Installation
 
-`TripNext-main`:
+```bash
+# Clone Repository
+git clone <repository-url>
 
-- Newer stack
-- Next.js 16 + React 19
-- Tailwind v4
-- More dependencies and newer package versions
-- Extra support for MongoDB auth adapter, file upload, icons, dotenv, and class utilities
+# Navigate to Project
+cd THE-GOLDEN-SHUTTER
 
-Overall, `TripNext-main` technically zyada updated aur feature-rich stack hai. `TripNest-Typscript-Next.js-main` simpler hai, lekin usme Tailwind/PostCSS dependency mismatch fix karna padega.
+# Backend
+cd backend
+npm install
+
+# Frontend
+cd ../frontend
+npm install
+```
+
+### Running
+
+#### Backend
+
+```bash
+cd backend
+npm start
+```
+
+Runs on:
+
+```text
+http://localhost:5000
+```
+
+#### Frontend
+
+```bash
+cd frontend
+npm run dev
+```
+
+Runs on:
+
+```text
+http://localhost:5173
+```
+
+### Production Build
+
+```bash
+cd frontend
+npm run build
+```
+
+---
+
+## Color Palette
+
+### Root CSS Variables
+
+| Variable       | Value             | Description     |
+| -------------- | ----------------- | --------------- |
+| `--bg`         | `#000000`         | Main Background |
+| `--text`       | `#FFFFFF`         | Primary Text    |
+| `--card`       | `#1F2124`         | Card Background |
+| `--border`     | `#69727D`         | Border Color    |
+| `--overlay-30` | `rgba(0,0,0,0.3)` | Overlay         |
+| `--overlay-10` | `rgba(0,0,0,0.1)` | Overlay         |
+
+### Brand Colors
+
+* `#F5F1E8`
+* `#9B7653`
+* `#2C2C2C`
+* `#6A6A6A`
+* `#4A4A4A`
+
+---
+
+## Scripts
+
+| Command         | Description                       |
+| --------------- | --------------------------------- |
+| `npm start`     | Start Backend Server              |
+| `npm run dev`   | Start Frontend Development Server |
+| `npm run build` | Build Production Version          |
+| `npm run lint`  | Run ESLint                        |
+
+---
+
+## API Endpoints
+
+* `/api/auth`
+* `/api/gallery`
+* `/api/weddings`
+* `/api/bookings`
+* `/api/contact`
+
+---
+
+## Environment Setup
+
+Create a `.env` file inside the `backend` folder.
+
+```env
+PORT=5000
+CLIENT_ORIGIN=http://localhost:5173
+
+MONGO_URI=your_mongodb_connection_string
+
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+
+EMAIL_USER=your_email@gmail.com
+EMAIL_PASSWORD=your_app_password
+```
+
+---
+
+## Features
+
+* Responsive Gallery
+* Wedding Booking System
+* Contact Form
+* Cloudinary Image Management
+* Email Notifications
+* Authentication System
+* REST API
+* Modern Responsive UI
+
+---
+
+## Deployment
+
+### Backend (Render)
+
+Configure the following environment variables:
+
+* `PORT`
+* `MONGO_URI`
+* `CLOUDINARY_CLOUD_NAME`
+* `CLOUDINARY_API_KEY`
+* `CLOUDINARY_API_SECRET`
+* `EMAIL_USER`
+* `EMAIL_PASSWORD`
+
+### Frontend (Vercel)
+
+Configure the following environment variable:
+
+```env
+VITE_API_URL=your_backend_api_url
+```
+
+The frontend communicates with the deployed backend using this API URL.
